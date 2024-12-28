@@ -1,0 +1,5 @@
+defaults:
+  - tasks: vos                  # Default task to run (video object segmentation)
+  - models: mae             # Default model to use
+  - probes: linear        # Default probe
+  - datasets: davis_video

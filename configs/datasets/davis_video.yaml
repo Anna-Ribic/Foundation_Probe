@@ -1,0 +1,14 @@
+_target_: src.datasets.DavisVideo.DavisVideo  # Replace 'your_module' with the actual module path
+
+data_root: "../emergseg/data"                    # Corresponds to `data_root` parameter
+split: "filelists/val_davis2017_480p_dir"                        # Specifies the dataset split ('train', 'val', 'test')
+# Transformation Parameters
+crop_range: [0.5, 0.95]
+cutout_size: 32
+cutout_prob: 0.2
+cutout_num: 1
+input_size: 224
+gap: 2
+timeflip: false
+temp_win: 2
+

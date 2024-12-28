@@ -1,0 +1,19 @@
+_target_: src.tasks.vos.VOSTask
+
+# Evaluation
+eval_size: [224]
+feat_res: [32]
+downsample_factor: None
+loss: 'cross_entropy'
+first_frame_iter: 500 # Number of training iterations of probe on first frame
+crop: False # Crop uses sliding window (224x224) over image for feature extraction
+use_knn: False
+
+# KNN parameters
+knn_parameters:
+      n_last_frames: 5
+      topk: 3
+      size_mask_neighborhood: 7
+
+# Logging
+result_path: 'test_vos'

@@ -1,0 +1,4 @@
+_target_: src.probes.linear.LinearProbe
+input_dim: 768
+num_classes: 3
+device: 'cuda'
