@@ -54,7 +54,7 @@ class VOSTask:
         """
         self.name = "Video Object Segmentation"
 
-        self.result_path = result_path
+        self.base_path = result_path
         self.eval_size_init = eval_size
         self.n_iter = first_frame_iter
         self.loss_f = getattr(F, loss)
@@ -75,7 +75,7 @@ class VOSTask:
         Run evaluation on the dataset.
         """
 
-        result_path = os.path.join(self.result_path, model.name, probe.name if not self.use_knn else 'KNN', 'iter_'+str(self.n_iter) if not self.use_knn else '', 'eval_size_'+str(self.eval_size_init), 'no_crop' if not self.crop else 'crop')
+        result_path = os.path.join(self.base_path, f'{model.name}_{model.checkpoint_name}', probe.name if not self.use_knn else 'KNN', 'iter_'+str(self.n_iter) if not self.use_knn else '', 'eval_size_'+str(self.eval_size_init), 'no_crop' if not self.crop else 'crop')
 
         model.to(self.device)
         probe.to(self.device)
@@ -83,7 +83,7 @@ class VOSTask:
         if self.use_knn:
             print('Evaluating with KNN')
             result_path = os.path.join(
-                str(self.result_path),
+                str(result_path),
                 f"down_factor_{self.downsample_factor}" if self.feat_res is None else f"feat_res_{self.feat_res}",
                 f"n_frames_{self.knn_parameters.get('n_last_frames', 5)}",
                 f"topk_{self.knn_parameters.get('topk', 3)}",
@@ -95,7 +95,6 @@ class VOSTask:
 
         else:
             print(f'Storing results in {result_path}')
-            result_path = os.path.join(str(result_path), f'n_iterations_{self.n_iter}')
             self.run_validation_mlp(model, probe, dataset, loss_f=self.loss_f,
                                result_path=result_path, eval_size_init=self.eval_size_init, n_iter=self.n_iter)
 

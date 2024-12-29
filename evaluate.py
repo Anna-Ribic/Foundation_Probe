@@ -9,6 +9,7 @@ def main(cfg: DictConfig):
     print("Loading model and probe...")
     model = instantiate(cfg.models)
     probe = instantiate(cfg.probes)
+    probe.update_input_dim(model.dim)
     print(f"Initialized model: {model.name}"
           f" with probe: {probe.name}")
 

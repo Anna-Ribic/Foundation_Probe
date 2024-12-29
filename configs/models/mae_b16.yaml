@@ -1,0 +1,6 @@
+_target_: src.models.mae.MAE
+checkpoint: "facebook/vit-mae-base"
+output: "dense"       # Options: "cls", "gap", "dense"
+layer: -1             # Default: last layer
+return_multilayer: false
+image_size: [224, 224] # Adjust image size dynamically
