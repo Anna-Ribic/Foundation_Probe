@@ -1,0 +1,6 @@
+_target_: src.models.dino.DINO
+config_name: 'dinov2_b14_reg' #Used for path naming
+checkpoint: 'dinov2_vitb14_reg'
+output: dense-cls
+layer: -1
+image_size: [224, 224] # Adjust image size dynamically

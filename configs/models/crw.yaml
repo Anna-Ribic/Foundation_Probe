@@ -1,0 +1,4 @@
+_target_: evals.models.crw.CRW
+checkpoint: "models/snapshot_095_0.478.pth"
+output: dense
+layer: -1

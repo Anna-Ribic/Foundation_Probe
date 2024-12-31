@@ -1,0 +1,10 @@
+_target_: src.probes.attentive.AttentiveProbe
+embed_dim: 768
+num_heads: 12
+mlp_ratio: 4.0
+depth: 1
+init_std: 0.02
+qkv_bias: true
+num_classes: 3
+device: 'cuda'
+complete_block: true

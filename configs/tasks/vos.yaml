@@ -1,7 +1,7 @@
 _target_: src.tasks.vos.VOSTask
 
 # Evaluation
-eval_size: [224]
+eval_size: [480]
 feat_res: [32]
 downsample_factor: None
 loss: 'cross_entropy'
@@ -16,4 +16,4 @@ knn_parameters:
       size_mask_neighborhood: 7
 
 # Logging
-result_path: 'test_vos'
+result_path: 'vos_exp'

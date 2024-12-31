@@ -7,6 +7,7 @@ from hydra.utils import instantiate
 class MAE(nn.Module):
     def __init__(
         self,
+        config_name: str,
         checkpoint: str = "facebook/vit-mae-base",
         output: str = "dense",
         layer: int = -1,
@@ -26,7 +27,8 @@ class MAE(nn.Module):
         super().__init__()
 
         assert output in ["cls", "gap", "dense"], "Options: [cls, gap, dense]"
-        
+
+        self.config_name = config_name
         self.name = 'MAE'
         self.output = output
         self.checkpoint_name = checkpoint.split("/")[-1]

@@ -1,0 +1,4 @@
+_target_: src.probes.mlp.MLP
+input_dim: 768
+num_classes: 3
+device: 'cuda'

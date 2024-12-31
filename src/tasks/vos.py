@@ -19,6 +19,7 @@ from src.tasks.utils import (
     restrict_neighborhood,
     mask2tensor
 )
+from hydra.core.hydra_config import HydraConfig
 
 
 #TODO move somewhere
@@ -75,7 +76,7 @@ class VOSTask:
         Run evaluation on the dataset.
         """
 
-        result_path = os.path.join(self.base_path, f'{model.name}_{model.checkpoint_name}', probe.name if not self.use_knn else 'KNN', 'iter_'+str(self.n_iter) if not self.use_knn else '', 'eval_size_'+str(self.eval_size_init), 'no_crop' if not self.crop else 'crop')
+        result_path = os.path.join(self.base_path, f'{model.config_name}', probe.name if not self.use_knn else 'KNN', 'iter_'+str(self.n_iter) if not self.use_knn else '', 'eval_size_'+str(self.eval_size_init), 'no_crop' if not self.crop else 'crop')
 
         model.to(self.device)
         probe.to(self.device)

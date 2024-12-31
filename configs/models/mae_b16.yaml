@@ -1,4 +1,5 @@
 _target_: src.models.mae.MAE
+config_name: 'mae_b16' #Used for path naming
 checkpoint: "facebook/vit-mae-base"
 output: "dense"       # Options: "cls", "gap", "dense"
 layer: -1             # Default: last layer
